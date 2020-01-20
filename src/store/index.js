@@ -4,11 +4,15 @@ import rootReducer from '../reducer';
 import {loadState,saveState} from '../config/localStorage';
 import throttle from 'lodash/throttle';
 
-const persistedState = loadState();
-//const store = createStore(rootReducer,applyMiddleware(thunkMiddleware));
+//Since this uses the database in firebase so i commented the localStorage part
 
-export const store = createStore(rootReducer,persistedState, applyMiddleware(thunkMiddleware))
-//export default store;
-store.subscribe(throttle(()=> {
-  saveState(store.getState());
-},1000));
+//const persistedState = loadState();
+export const store = createStore(rootReducer,applyMiddleware(thunkMiddleware));
+
+
+
+// export const store = createStore(rootReducer,persistedState, applyMiddleware(thunkMiddleware))
+// //export default store;
+// store.subscribe(throttle(()=> {
+//   saveState(store.getState());
+// },1000));

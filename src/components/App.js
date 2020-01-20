@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { simpleAction } from '../actions/action';
+import { getStateThunk} from '../actions/action';
 import Todo from './Todo';
 import AddTodoForm from './AddTodoForm';
 import { makeStyles } from '@material-ui/core/styles';
 import '../App.css';
 
 
-class App extends Component {
 
-  action = (event) => {
-    this.props.simpleAction();
-  }
+class App extends Component {
 
   render() {
     const {notCompleted,completed,userId} = this.props;
-    console.log(userId)
     return (
       <div>
         <div className="App">
-          <header className="header">
+          <div className="header">
             <h1 className="App-title">Todo list</h1>
-          </header>
+          </div>
           <AddTodoForm/>
           <div className="todos-body">
             <div className="todos-container">
@@ -46,9 +42,12 @@ class App extends Component {
 /*
  * mapDispatchToProps
 */
-const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction())
-})
+const mapDispatchToProps = dispatch => {
+  dispatch(getStateThunk())
+  return {
+    dispatch,
+  }
+}
 
 /*
  * mapStateToProps

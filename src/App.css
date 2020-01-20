@@ -3,3 +3,10 @@
   height:1px;
   margin: 20px 100px 20px 100px;
 }
+
+.header {
+  text-align: center;
+}
+.App-title {
+  padding-top: 10px;
+}

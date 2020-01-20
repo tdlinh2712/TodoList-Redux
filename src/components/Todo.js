@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {deleteTodo, setComplete,editTodo} from '../actions/action';
+import {deleteTodoFromFirebase,editTodoContentInFirebase, changeCompleteStatusInFirebase} from '../config/firebase';
 import { connect } from 'react-redux';
 import CheckCircleOutlineRoundedIcon from '@material-ui/icons/CheckCircleOutlineRounded';
 import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
@@ -74,10 +75,12 @@ const Todo = ({todoID,content,completed,dispatch}) => {
   const [todoText,setText] = useState(content);
 
   const handleDeleteTodo = () => {
+    deleteTodoFromFirebase(todoID,completed);
     dispatch(deleteTodo(todoID,completed));
   }
 
   const handleSetCompleted = () => {
+    changeCompleteStatusInFirebase(todoID,!completed);
     dispatch(setComplete(todoID,!completed));
   }
 
@@ -87,6 +90,7 @@ const Todo = ({todoID,content,completed,dispatch}) => {
 
   const handleEditTodo = () => {
     setIsEditing(false);
+    editTodoContentInFirebase(todoID,completed,todoText);
     dispatch(editTodo(todoID,completed,todoText));
   }
 

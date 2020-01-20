@@ -1,14 +1,42 @@
-export const simpleAction = () => dispatch => {
- dispatch({
-  type: 'SIMPLE_ACTION',
-  payload: 'result_of_simple_action'
- })
+import database from '../config/firebase';
+import thunkMiddleware from 'redux-thunk';
+import {moveFbRecord}  from '../config/firebase';
+
+export const fetchState = state => {
+    return {
+      type: "FETCH_STATE",
+      payload: state,
+    };
+  }
+
+/**
+ * THUNKS
+ */
+ //map state from firebase
+export function getStateThunk() {
+  return dispatch => {
+    const state = {completed:[],notCompleted:[]};
+    const ref = database.ref('/');
+    database.ref(`/`).once('value', snap => {
+          const value = snap.val();
+          if(value.completed) {
+            const todoArray=Object.values(value.completed);
+            state.completed = todoArray;
+          }
+          if(value.notCompleted) {
+            const todoArray=Object.values(value.notCompleted);
+            state.notCompleted = todoArray;
+          }
+      })
+    .then(() => dispatch(fetchState(state)))
+  }
 }
 
-export const addTodo = (content) => {
+
+export const addTodo = (todoContent,todoID) => {
   return {
     type:'ADD_TODO',
-    payload:content,
+    payload:{todoContent,todoID}
   }
 }
 

@@ -24,15 +24,11 @@ const findIndex = (list,ID) => {
 
 export default (state = {notCompleted:[],completed:[],userId: v4()}, action) => {
  switch (action.type) {
-  case 'SIMPLE_ACTION':
-   return {
-    result: action.payload
-   }
   case 'ADD_TODO':
-    const id = v4();
-    const newTodo = {id:id,content:action.payload};
+    const newTodo = {id:action.payload.todoID,content:action.payload.todoContent};
     const newNotCompletedList = [...state.notCompleted,newTodo];
     return {...state,notCompleted:newNotCompletedList};
+
   case 'DELETE_TODO':
     let index;
     //find list to delete
@@ -75,25 +71,30 @@ export default (state = {notCompleted:[],completed:[],userId: v4()}, action) => 
   }
 
   case 'EDIT_TODO':
-  const {todoID,completeStatus,newContent} = action.payload;
-  let listToEdit = state.notCompleted;
-  if(completeStatus) {
-    listToEdit = state.completed;
-  }
-  let editIndex;
-  listToEdit = listToEdit.map((todo,i) => {
-    if(todo.id===todoID) {
-      editIndex=i;
+    const {todoID,completeStatus,newContent} = action.payload;
+    let listToEdit = state.notCompleted;
+    if(completeStatus) {
+      listToEdit = state.completed;
     }
-    return todo;
-  })
-  listToEdit[editIndex].content = newContent;
+    let editIndex;
+    listToEdit = listToEdit.map((todo,i) => {
+      if(todo.id===todoID) {
+        editIndex=i;
+      }
+      return todo;
+    })
+    listToEdit[editIndex].content = newContent;
 
-  if(!completeStatus) {
-    return {...state,notCompleted:listToEdit};
-  } else {
-    return {...state,completed:listToEdit};
-  }
+    if(!completeStatus) {
+      return {...state,notCompleted:listToEdit};
+    } else {
+      return {...state,completed:listToEdit};
+    }
+
+  case 'FETCH_STATE':
+    console.log(action.payload);
+    return action.payload;
+
   default:
    return state
  }
