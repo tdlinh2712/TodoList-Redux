@@ -19,13 +19,15 @@ export function getStateThunk() {
     const ref = database.ref('/');
     database.ref(`/`).once('value', snap => {
           const value = snap.val();
-          if(value.completed) {
-            const todoArray=Object.values(value.completed);
-            state.completed = todoArray;
-          }
-          if(value.notCompleted) {
-            const todoArray=Object.values(value.notCompleted);
-            state.notCompleted = todoArray;
+          if(value) {
+            if(value.completed) {
+              const todoArray=Object.values(value.completed);
+              state.completed = todoArray;
+            }
+            if(value.notCompleted) {
+              const todoArray=Object.values(value.notCompleted);
+              state.notCompleted = todoArray;
+            }
           }
       })
     .then(() => dispatch(fetchState(state)))
