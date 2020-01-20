@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can test the live demo here: https://tdlinh2712.github.io/TodoList-Redux/
 
 ## Available Scripts
 
