@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/TodoList-Redux/static/css/main.e9ab6d9d.chunk.css",
-    "main.js": "/TodoList-Redux/static/js/main.004cce8b.chunk.js",
-    "main.js.map": "/TodoList-Redux/static/js/main.004cce8b.chunk.js.map",
+    "main.css": "/TodoList-Redux/static/css/main.c7e36638.chunk.css",
+    "main.js": "/TodoList-Redux/static/js/main.d7bd26f6.chunk.js",
+    "main.js.map": "/TodoList-Redux/static/js/main.d7bd26f6.chunk.js.map",
     "runtime-main.js": "/TodoList-Redux/static/js/runtime-main.3e392eca.js",
     "runtime-main.js.map": "/TodoList-Redux/static/js/runtime-main.3e392eca.js.map",
-    "static/js/2.9541f2b0.chunk.js": "/TodoList-Redux/static/js/2.9541f2b0.chunk.js",
-    "static/js/2.9541f2b0.chunk.js.map": "/TodoList-Redux/static/js/2.9541f2b0.chunk.js.map",
+    "static/js/2.29cf0f19.chunk.js": "/TodoList-Redux/static/js/2.29cf0f19.chunk.js",
+    "static/js/2.29cf0f19.chunk.js.map": "/TodoList-Redux/static/js/2.29cf0f19.chunk.js.map",
     "index.html": "/TodoList-Redux/index.html",
-    "precache-manifest.58111f5957da489d77567b71b96f5773.js": "/TodoList-Redux/precache-manifest.58111f5957da489d77567b71b96f5773.js",
+    "precache-manifest.2779ce65de2f83e7a1e389ff04956e18.js": "/TodoList-Redux/precache-manifest.2779ce65de2f83e7a1e389ff04956e18.js",
     "service-worker.js": "/TodoList-Redux/service-worker.js",
-    "static/css/main.e9ab6d9d.chunk.css.map": "/TodoList-Redux/static/css/main.e9ab6d9d.chunk.css.map",
-    "static/js/2.9541f2b0.chunk.js.LICENSE": "/TodoList-Redux/static/js/2.9541f2b0.chunk.js.LICENSE"
+    "static/css/main.c7e36638.chunk.css.map": "/TodoList-Redux/static/css/main.c7e36638.chunk.css.map",
+    "static/js/2.29cf0f19.chunk.js.LICENSE": "/TodoList-Redux/static/js/2.29cf0f19.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.3e392eca.js",
-    "static/js/2.9541f2b0.chunk.js",
-    "static/css/main.e9ab6d9d.chunk.css",
-    "static/js/main.004cce8b.chunk.js"
+    "static/js/2.29cf0f19.chunk.js",
+    "static/css/main.c7e36638.chunk.css",
+    "static/js/main.d7bd26f6.chunk.js"
   ]
 }
