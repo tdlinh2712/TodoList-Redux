@@ -6,6 +6,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import {addTodo} from '../actions/action';
 import {addTodoToFirebase} from '../config/firebase';
+
 const useStyles = makeStyles(theme => ({
   margin: {
     margin: theme.spacing(1),
@@ -33,7 +34,7 @@ const AddTodoForm = ({dispatch}) => {
   {
     if(todoContent) {
       const todoID = addTodoToFirebase(todoContent);
-      dispatch(addTodo(todoContent));
+      dispatch(addTodo(todoContent,todoID));
       setTodoContent("");
     }
   }
